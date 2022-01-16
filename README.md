@@ -96,3 +96,5 @@ Next Step
 2. Historical data analysis with ML supervised time seris
 3. Algoritm Trading execution - rebalancing
 4. Monitoring performance 
+
+testing
