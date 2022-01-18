@@ -3,7 +3,7 @@ ETF Dashboard V2 w/ Machine Learning
 - Readme author - Rabia and Ken Lee 2022-01-16
 
 I. Project overview
-To improve accuracy and performance in volitle market:
+- To improve accuracy and performance in volitle market:
 - Enhanced stock screening process by adding both Technical (Performance) and Financial (Fundamental) Analysis by using both Using Alpaca and Yahoo Finance Data 
 - Leveraged two machine Learning models and Colab cloud for stock price prediction (LSTM Regression Analysis) and Algorithmic trading (Deep Convolutional Neural Networks with execution signal (buy/hold/sell)
 - Added Portfolio and Performance management to create and revamp up our new Portfolio [WKRA] ($ 1,000,000 USD) 
@@ -84,7 +84,8 @@ installation instructions
 !pip install -U scikit-learn
 !pip install matplotlib
 
-growth and dividend methods. Linear regression model was used to be able to better forecast futures of our portfolio. Maximizing profits algorithmic trading was implemented to periodic rebalancing into our portfolio.
+growth and dividend methods. Linear regression model was used to be able to better forecast futures of our portfolio. 
+Maximizing profits algorithmic trading was implemented to periodic rebalancing into our portfolio.
 
 V. Data Source:
 -------------------------
