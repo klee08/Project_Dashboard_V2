@@ -43,13 +43,13 @@ Algorithmic Financial Trading with Deep Convolutional Neural Networks
 *inspired by paper "Algorithmic Financial Trading with Deep Convolutional Neural Networks: Time Series to Image Conversion Approach:
 implemenetation reference for neural network prediction model: https://towardsdatascience.com/stock-market-action-prediction-with-convnet-8689238feae3
 ML Training Process:
-a. Normalization: used MinMaxScaler from Sklearn to normalize the dat
-b. Group indicators in the image based on types such as mementum and oscillator and train many CNN architectures
-c. Reshape tabular data with 225 features as image
+- a. Normalization: used MinMaxScaler from Sklearn to normalize the dat
+- b. Group indicators in the image based on types such as mementum and oscillator and train many CNN architectures
+- c. Reshape tabular data with 225 features as image
 ![Image Reshape](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image1.PNG)
-d. Calculate Sample weight and pass it to Keras fit to deal with class imbalance
-e. Neural Network Training model: InputLayer --> Conv2D --> Dropout --> Conv2D --> MaxPooling2D --> Dropout --> Flatten --> Dense --> Dropout --> Dense
-f. BackTesting and Validating thru F1 Score and kappa
+- d. Calculate Sample weight and pass it to Keras fit to deal with class imbalance
+- e. Neural Network Training model: InputLayer --> Conv2D --> Dropout --> Conv2D --> MaxPooling2D --> Dropout --> Flatten --> Dense --> Dropout --> Dense
+- f. BackTesting and Validating thru F1 Score and kappa
 ![Model Loss](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image2.PNG)
 
 4-1) ETF_V2_4a PortfolioPricePrediction.ipynb
@@ -58,11 +58,11 @@ Stock Price Prediction and Forecasting using Stacked LSTM
 - Colab integration version also available at https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
 - Supervised Regression
 ML Training Process:
-a. Used min-max scalar to transform the values from 0 to 1
-b. Split Train and Test by 60%
-c. Used Sequential Model aand added LSTM Layers to train the model
-d. fit X_train and y_train 
-e. back testing -Predicted Open vs. Actual open
+- a. Used min-max scalar to transform the values from 0 to 1
+- b. Split Train and Test by 60%
+- c. Used Sequential Model aand added LSTM Layers to train the model
+- d. fit X_train and y_train 
+- e. back testing -Predicted vs. Actual open comparison
 ![Back Test](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image3.PNG)
 - Discuss any unanticipated insights or problems that arose and how you resolved them.
    Hard to improve accuracy and data loss - more research required to train better
@@ -86,17 +86,17 @@ growth and dividend methods. Linear regression model was used to be able to bett
 
 V. Data Source:
 -------------------------
-1. Alpaca  API (V1) -- Price History Close, Volume
-2. US News -- ETF Ratings by sector and Underlying stock names 
-3. Yahoo Finance -- Financial Statement, balance Sheet and Ratios
-4. Fidelity and FinVisualization- Performance baseline by sector. (download as csv) 
+- 1. Alpaca  API (V1) -- Price History Close, Volume
+- 2. US News -- ETF Ratings by sector and Underlying stock names 
+- 3. Yahoo Finance -- Financial Statement, balance Sheet and Ratios
+- 4. Fidelity and FinVisualization- Performance baseline by sector. (download as csv) 
 --------------------------   
   
 VI. Relevant code or demonstrations of the machine learning model.
    1. https://github.com/klee08/Project_Dashboard_V2
       - ETF_v2_3a_AlgoDataGenerator.ipynb
       - ETF_v2_4b PortfolioPositionMgmt.ipynb
-   2. Google Colab Sample - URL: https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
+   2. Google Colab Adoption - URL: https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
 
 VII. Futher Improvement Points:
   - Need to improve ML Accuracy and prevent loss further by doing more research
