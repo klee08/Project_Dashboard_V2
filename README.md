@@ -32,10 +32,9 @@ Simplified F-Score and Z-Score due to data limitation (only latest quarterly rep
 
 3) AlgoTrader
 3-1) ETF_v2_3a_AlgoDataGenerator.ipynb
-
 Calculate Relatvie Strength Index(RSI), Money Flow Index(MFI), Return on capital(ROC), 
 CMO, SMA, EMA, WMA, HWA< IRIX, CCI, DPO KST to generate Fresh Rolling Train Data per stock name
-
+![Model Data](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image4.PNG)
 3-2) ETF_v2_3b_AlgoTrader.ipynb
 
 Algorithmic Financial Trading with Deep Convolutional Neural Networks
