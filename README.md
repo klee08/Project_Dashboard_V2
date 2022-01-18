@@ -25,12 +25,12 @@ III. Detailed usage and Jupyter notebooks:
 - screen the best performers by using criteria based on SMA 50/150/200/200_20/HIGH_52WK/LOW_52WK, RelativeStrength RS Rating w/ Multiple and SP 500 
 - Inspired from Mark Minervini's Trend Template
 - http://www.minervini.com/blog/index.php/blog/first_things_first_how_to_chart_stocks_correctly_and_increase_your_chances.
-
+![Screener](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image5.PNG)
 2) ETF_v2_2_FinancialAnalyzer.ipynb
 
 Analyze Financial Profitability and Stability by using Piotroski F-score and Altman Z Scoring metrices 
 Simplified F-Score and Z-Score due to data limitation (only latest quarterly reporting available from Yahoo Finance)
-
+![Scoring](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image6.PNG)
 3) AlgoTrader
 3-1) ETF_v2_3a_AlgoDataGenerator.ipynb
 Calculate Relatvie Strength Index(RSI), Money Flow Index(MFI), Return on capital(ROC), 
