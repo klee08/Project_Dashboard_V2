@@ -20,19 +20,23 @@ ML Model breakage thru back testing and also helps rebalancing/revamping assets 
 
 III. Detailed usage and Jupyter notebooks: 
 1) ETF_v2_1_StockScreener.ipynb 
+
 - screen the best performers by using criteria based on SMA 50/150/200/200_20/HIGH_52WK/LOW_52WK, RelativeStrength RS Rating w/ Multiple and SP 500 
 - Inspired from Mark Minervini's Trend Template
 - http://www.minervini.com/blog/index.php/blog/first_things_first_how_to_chart_stocks_correctly_and_increase_your_chances.
 
 2) ETF_v2_2_FinancialAnalyzer.ipynb
+
 Analyze Financial Profitability and Stability by using Piotroski F-score and Altman Z Scoring metrices 
 Simplified F-Score and Z-Score due to data limitation (only latest quarterly reporting available from Yahoo Finance)
 
 3-1) ETF_v2_3a_AlgoDataGenerator.ipynb
+
 Calculate Relatvie Strength Index(RSI), Money Flow Index(MFI), Return on capital(ROC), 
 CMO, SMA, EMA, WMA, HWA< IRIX, CCI, DPO KST to generate Fresh Rolling Train Data per stock name
 
 3-2) ETF_v2_3b_AlgoTrader.ipynb
+
 Algorithmic Financial Trading with Deep Convolutional Neural Networks
 *inspired by paper "Algorithmic Financial Trading with Deep Convolutional Neural Networks: Time Series to Image Conversion Approach:
 implemenetation reference for neural network prediction model: https://towardsdatascience.com/stock-market-action-prediction-with-convnet-8689238feae3
@@ -47,6 +51,7 @@ f. BackTesting and Validating thru F1 Score and kappa
 ![Model Loss](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image2.PNG)
 
 4-1) ETF_V2_4a PortfolioPricePrediction.ipynb
+
 Stock Price Prediction and Forecasting using Stacked LSTM
 - Colab integration version also available at https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
 - Supervised Regression
@@ -61,6 +66,7 @@ e. back testing -Predicted Open vs. Actual open
    Hard to improve accuracy and data loss - more research required to train better
 
 4-2) ETF_v2_4b PortfolioPositionMgmt.ipynb
+
 - Cumulative Return, Performance Comparison to SP500 and other benchmarks, Monte Carlo simulation  
 - Position Management POC (Proof of Concept -- need to integrated with AlgoTrading)
 
