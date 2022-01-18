@@ -40,11 +40,11 @@ ML Training Process:
 a. Normalization: used MinMaxScaler from Sklearn to normalize the dat
 b. Group indicators in the image based on types such as mementum and oscillator and train many CNN architectures
 c. Reshape tabular data with 225 features as image
-![Image Reshape](../Resources/image1.png)
+![Image Reshape](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image1.PNG)
 d. Calculate Sample weight and pass it to Keras fit to deal with class imbalance
 e. Neural Network Training model: InputLayer --> Conv2D --> Dropout --> Conv2D --> MaxPooling2D --> Dropout --> Flatten --> Dense --> Dropout --> Dense
 f. BackTesting and Validating thru F1 Score and kappa
-![Model Loss](../Resources/image2.png)
+![Model Loss](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image2.PNG)
 
 4-1) ETF_V2_4a PortfolioPricePrediction.ipynb
 Stock Price Prediction and Forecasting using Stacked LSTM
@@ -56,7 +56,7 @@ b. Split Train and Test by 60%
 c. Used Sequential Model aand added LSTM Layers to train the model
 d. fit X_train and y_train 
 e. back testing -Predicted Open vs. Actual open
-![Back Test](.,/Resources/image3.png)
+![Back Test](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image3.PNG)
 - Discuss any unanticipated insights or problems that arose and how you resolved them.
    Hard to improve accuracy and data loss - more research required to train better
 
