@@ -3,9 +3,10 @@ ETF Dashboard V2 Incorporated for Machine Learning
 - Readme author - Rabia and Ken Lee 2022-01-16
 
 I. Project overview
-- Enhance stock screening process by adding both Technical (Performance) and Financial (Fundamental) Analysis by using both Using Alpaca and Yahoo Finance Data 
-- Leverage two machine Learning models and Colab cloud for stock price prediction (LSTM Regression Analysis) and Algorithmic trading (Deep Convolutional Neural Networks with execution signal (buy/hold/sell)
-- Add Portfolio and Performance management to create and revamp up our new Portfolio [WKRA] ($ 1,000,000 USD) 
+To improve accuracy and performance in volitle market:
+- Enhanced stock screening process by adding both Technical (Performance) and Financial (Fundamental) Analysis by using both Using Alpaca and Yahoo Finance Data 
+- Leveraged two machine Learning models and Colab cloud for stock price prediction (LSTM Regression Analysis) and Algorithmic trading (Deep Convolutional Neural Networks with execution signal (buy/hold/sell)
+- Added Portfolio and Performance management to create and revamp up our new Portfolio [WKRA] ($ 1,000,000 USD) 
 
 Presentation(Complete Detail): https://docs.google.com/presentation/d/1h6kvGb_6y4TC3zCaCfaiNC9UBA9HESKRjNTkuy4BBRU/edit#slide=id.gc6f9e470d_0_0
 
