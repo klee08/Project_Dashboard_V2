@@ -7,7 +7,7 @@ I. Project overview
 - Leverage two machine Learning models and Colab cloud for stock price prediction (LSTM Regression Analysis) and Algorithmic trading (Deep Convolutional Neural Networks with execution signal (buy/hold/sell)
 - Add Portfolio and Performance management to create and revamp up our new Portfolio [WKRA] ($ 1,000,000 USD) 
 
-Complete Detail: Presentation: https://docs.google.com/presentation/d/1h6kvGb_6y4TC3zCaCfaiNC9UBA9HESKRjNTkuy4BBRU/edit#slide=id.gc6f9e470d_0_0
+Presentation(Complete Detail): https://docs.google.com/presentation/d/1h6kvGb_6y4TC3zCaCfaiNC9UBA9HESKRjNTkuy4BBRU/edit#slide=id.gc6f9e470d_0_0
 
 II. Dashboard Functinaly Domains:
 1. Technical Stock Screener analyzes individual historical performance such as moving averages with volume and Relative Strength(RS) Rating to selects allocation asset candidates based on our screening criteria
