@@ -36,6 +36,7 @@ keys_financial = {
     'trailingAnnualDividendYield':'Dividend_TrailingAnnual',
     'dividendYield':'Dividend_Yield',
     'earningsGrowth':'Earning_Growth',
+    'revenueGrowth':'Revenue_Growth',
     'earningsQuarterlyGrowth':'Earning_QuarterGrowth',
     'ebitda':'EBITDA',
     'enterpriseToEbitda':'Enterprise_EBITDA',
@@ -45,6 +46,8 @@ keys_financial = {
     'ebitdaMargins':'Margin_EBITDA',
     'grossMargins':'Margin_Gross',
     'operatingMargins':'Margin_Operation',
+    'operatingCashflow': 'CF_Operation',
+    'netIncomeToCommon': 'CF_NetIncome',
     'profitMargins':'Margin_Profit',
     'marketCap':'MarketCap',
     'longName':'Name_Long',
@@ -62,6 +65,7 @@ keys_financial = {
     'currentRatio':'Ratio_Current',
     'payoutRatio':'Ratio_DivPayout',
     'shortRatio':'Ratio_Short',
+    'quickRatio':'Ratio_Quick',
     'returnOnAssets':'Return_on_Asset',
     'returnOnEquity':'Return_on_Equity',
     'revenuePerShare':'Revenue_per_share',
@@ -203,3 +207,130 @@ def get_finData(p_portfolio_df):
     """
     l_finData_df = pd.read_sql_query(l_sql_query, eft_data_connection_string)
     return l_finData_df
+
+def get_finDataReport(p_portfolio_df):
+
+    l_name_df = p_portfolio_df.copy()
+    if 'symbol' in l_name_df:
+        print('a')
+        # do nothing
+    elif 'name' in  l_name_df:
+        l_name_df['symbol'] = l_name_df['name']
+    elif 'Symbol' in l_name_df:
+        l_name_df['symbol'] = l_name_df['Symbol']
+    else:
+        l_name_df['symbol'] = l_name_df.index
+
+    l_names = hist.get_where_condition(l_name_df, 'symbol')
+    l_sql_query = f"""
+    SELECT * FROM FINANCIAL_DATA WHERE Symbol in ({l_names})
+    """
+    l_finData_df = pd.read_sql_query(l_sql_query, eft_data_connection_string)
+    return l_finData_df
+
+def download_fundamentalData(p_output_df, p_symbols):
+    #display(output_df)
+    for l_symbol in p_symbols:
+        #print(stock)
+        #if stock in output_df.index:
+        #    print("do nothing")
+        #else:
+        #    output_df = output_df.reindex(df.index.values.tolist()+[stock])
+        #    output_df = output_df.drop_duplicates(keep ='first')
+        l_info = yf.Ticker(l_symbol).info
+        for l_key in keys_financial :
+            l_value = l_info.get(l_key)
+            try:
+                if 'Date_' in keys_financial [l_key]:
+                    if l_value != 'None':
+                        p_output_df.at[l_symbol,keys_financial [l_key]] = datetime.utcfromtimestamp(int(l_value)).strftime('%Y-%m-%d %H:%M:%S')
+                else:
+                    p_output_df.at[l_symbol,keys_financial [l_key]] = l_value
+            except:
+                p_output_df.at[l_symbol,keys_financial [l_key]] = l_value
+                
+            #print(f"{stock} - {key} -- {keys[key]}: {info.get(key)}")
+    p_output_df.to_sql('FUNDAMENTAL_DATA', etf_data_engine, index=True, if_exists='replace')
+    return p_output_df
+
+def download_fundamentalData_by_df_Symbol(p_output_df, p_symbols_df):
+    #display(output_df)
+ 
+    l_name_df = p_symbols_df.copy()
+    if 'symbol' in l_name_df:
+        print('a')
+        # do nothing
+    elif 'name' in  l_name_df:
+        l_name_df['symbol'] = l_name_df['name']
+    elif 'Symbol' in l_name_df:
+        l_name_df['symbol'] = l_name_df['index']
+    elif 'Symbol' in l_name_df:
+        l_name_df['symbol'] = l_name_df['Symbol']
+    else:
+        l_name_df['symbol'] = l_name_df.index
+
+    for l_symbol in l_name_df['symbol']:
+
+        #print(stock)
+        #if stock in output_df.index:
+        #    print("do nothing")
+        #else:
+        #    output_df = output_df.reindex(df.index.values.tolist()+[stock])
+        #    output_df = output_df.drop_duplicates(keep ='first')
+        l_info = yf.Ticker(l_symbol).info
+        for l_key in keys_financial :
+            l_value = l_info.get(l_key)
+            try:
+                if 'Date_' in keys_financial [l_key]:
+                    if l_value != 'None':
+                        p_output_df.at[l_symbol,keys_financial [l_key]] = datetime.utcfromtimestamp(int(l_value)).strftime('%Y-%m-%d %H:%M:%S')
+                else:
+                    p_output_df.at[l_symbol,keys_financial [l_key]] = l_value
+            except:
+                p_output_df.at[l_symbol,keys_financial [l_key]] = l_value
+                
+            #print(f"{stock} - {key} -- {keys[key]}: {info.get(key)}")
+    p_output_df.to_sql('FUNDAMENTAL_DATA', etf_data_engine, index=True, if_exists='replace')
+    return p_output_df
+
+
+
+def get_fundamentalData(p_portfolio_df):
+
+    l_name_df = p_portfolio_df.copy()
+    if 'symbol' in l_name_df:
+        print('a')
+        # do nothing
+    elif 'name' in  l_name_df:
+        l_name_df['symbol'] = l_name_df['name']
+    elif 'Symbol' in l_name_df:
+        l_name_df['symbol'] = l_name_df['Symbol']
+    else:
+        l_name_df['symbol'] = l_name_df.index
+
+    l_names = hist.get_where_condition(l_name_df, 'symbol')
+    l_sql_query = f"""
+    SELECT * FROM FUNDAMENTAL_DATA WHERE Symbol in ({l_names})
+    """
+    l_fundamentalData_df = pd.read_sql_query(l_sql_query, eft_data_connection_string)
+    return l_fundamentalData_df
+
+def get_fundamentalDataReport(p_portfolio_df):
+
+    l_name_df = p_portfolio_df.copy()
+    if 'symbol' in l_name_df:
+        print('a')
+        # do nothing
+    elif 'name' in  l_name_df:
+        l_name_df['symbol'] = l_name_df['name']
+    elif 'Symbol' in l_name_df:
+        l_name_df['symbol'] = l_name_df['Symbol']
+    else:
+        l_name_df['symbol'] = l_name_df.index
+
+    l_names = hist.get_where_condition(l_name_df, 'symbol')
+    l_sql_query = f"""
+    SELECT * FROM FUNDAMENTAL_DATA WHERE Symbol in ({l_names})
+    """
+    l_fundamentalData_df = pd.read_sql_query(l_sql_query, eft_data_connection_string)
+    return l_fundamentalData_df

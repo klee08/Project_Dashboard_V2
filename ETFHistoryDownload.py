@@ -68,6 +68,42 @@ def fetch_hitorical_data(p_tickers, p_startDt, p_endDt):
         close_df.insert(0, 'symbol', symbol)
         close_df.to_sql('STOCK_HISTORY', etf_data_engine, index=True, if_exists='append')
 
+def fetch_hitorical_allPx(p_tickers, p_startDt, p_endDt):
+    etf_data_engine = sql.create_engine(eft_data_connection_string, echo=True)
+    timeframe = "1D"
+    start_date = pd.Timestamp(p_startDt, tz="America/New_York").isoformat()
+    end_date = pd.Timestamp(p_endDt, tz="America/New_York").isoformat()
+    
+    df_hist_data = alpaca.get_barset(
+    p_tickers,
+    timeframe,
+    limit = 1000,
+    start = start_date,
+    end = end_date,
+    ).df
+    
+    
+    #loop thru tickets and insert into data
+    for symbol in p_tickers:
+        close_df = df_hist_data[symbol]
+        close_df['date'] = pd.to_datetime(close_df.index).date
+        close_df.index = pd.to_datetime(close_df.index).date
+        #close_df = close_df.drop(columns = ['open','high','low'])
+        close_df.insert(0, 'symbol', symbol)
+        close_df.to_sql('PX_HISTORY', etf_data_engine, index=True, if_exists='append')
+        
+def run_custom_query(p_queary):
+    return_data = pd.read_sql_query(p_queary, eft_data_connection_string)
+    return return_data
+
+    
+    
+def run_fetch_historical_data_in_daterange(p_symbols, p_start_date, p_end_date):
+
+    # append the specified_date_range
+    fetch_hitorical_data(p_symbols, p_start_date, p_end_date)
+
+        
         
 def run_fetch_historical_data(p_symbols, p_date):
 
@@ -89,7 +125,17 @@ def run_fetch_historical_data(p_symbols, p_date):
     year_3_d5 = year_3 + relativedelta(days=+5)
     fetch_hitorical_data(p_symbols, year_3, year_3_d5)
 
-    
+def download_EFT_holdings_in_daterange(p_symbol_list, p_start_date, p_end_date):
+    count = 0
+    symbol_list_99 = []
+    for index, row in p_symbol_list.iterrows():
+        symbol_list_99.append(row['name'])
+        if count > 40:
+            run_fetch_historical_data_in_daterange(symbol_list_99, p_start_date, p_end_date)
+            symbol_list_99 = []
+            count = 0
+        count = count + 1
+    run_fetch_historical_data_in_daterange(symbol_list_99, p_start_date, p_end_date)
     
 #def run_fetch_historical_data(p_symbols, p_date):
 #    print(p_symbols)
