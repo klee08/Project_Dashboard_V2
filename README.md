@@ -30,6 +30,7 @@ III. Detailed usage and Jupyter notebooks:
 Analyze Financial Profitability and Stability by using Piotroski F-score and Altman Z Scoring metrices 
 Simplified F-Score and Z-Score due to data limitation (only latest quarterly reporting available from Yahoo Finance)
 
+3) AlgoTrader
 3-1) ETF_v2_3a_AlgoDataGenerator.ipynb
 
 Calculate Relatvie Strength Index(RSI), Money Flow Index(MFI), Return on capital(ROC), 
