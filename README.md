@@ -1,4 +1,4 @@
-ETF Dashboard V2 Incorporated for Machine Learning
+ETF Dashboard V2 w/ Machine Learning
 - Team 7: Ken, Albert, William and Rabia
 - Readme author - Rabia and Ken Lee 2022-01-16
 
