@@ -20,6 +20,7 @@ to maximize the profit and reduce the risk
 ML Model breakage thru back testing and also helps rebalancing/revamping assets every 6 month 
 
 III. Detailed usage and Jupyter notebooks: 
+![ALL](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image9.PNG)
 1) ETF_v2_1_StockScreener.ipynb 
 
 - screen the best performers by using criteria based on SMA 50/150/200/200_20/HIGH_52WK/LOW_52WK, RelativeStrength RS Rating w/ Multiple and SP 500 
