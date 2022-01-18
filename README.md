@@ -69,8 +69,9 @@ e. back testing -Predicted Open vs. Actual open
 4-2) ETF_v2_4b PortfolioPositionMgmt.ipynb
 
 - Cumulative Return, Performance Comparison to SP500 and other benchmarks, Monte Carlo simulation  
+![Perf1](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image8.PNG)
 - Position Management POC (Proof of Concept -- need to integrated with AlgoTrading)
-
+![Perf2](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image7.PNG)
 IV. Installation instructions
 installation instructions
 !pip install dateutils
