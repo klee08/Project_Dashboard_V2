@@ -43,7 +43,7 @@ Algorithmic Financial Trading with Deep Convolutional Neural Networks
 *inspired by paper "Algorithmic Financial Trading with Deep Convolutional Neural Networks: Time Series to Image Conversion Approach:
 implemenetation reference for neural network prediction model: https://towardsdatascience.com/stock-market-action-prediction-with-convnet-8689238feae3
 ML Training Process:
-- a. Normalization: used MinMaxScaler from Sklearn to normalize the dat
+- a. Normalization: used MinMaxScaler from Sklearn to normalize the Fresh Rolling train data 
 - b. Group indicators in the image based on types such as mementum and oscillator and train many CNN architectures
 - c. Reshape tabular data with 225 features as image
 ![Image Reshape](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image1.PNG)
