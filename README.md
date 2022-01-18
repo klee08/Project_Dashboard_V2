@@ -89,9 +89,11 @@ V. Data Source:
 4. Fidelity and FinVisualization- Performance baseline by sector. (download as csv) 
 --------------------------   
   
-VI. relevant code or demonstrations of the machine learning model.
+VI. Relevant code or demonstrations of the machine learning model.
    1. https://github.com/klee08/Project_Dashboard_V2
-   2. Google Colab Jupyter lab - URL: https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
+      - ETF_v2_3a_AlgoDataGenerator.ipynb
+      - ETF_v2_4b PortfolioPositionMgmt.ipynb
+   2. Google Colab Sample - URL: https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
 
 VII. Futher Improvement Points:
   - Need to improve ML Accuracy and prevent loss further by doing more research
