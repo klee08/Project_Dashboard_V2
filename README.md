@@ -1,100 +1,93 @@
-# Project_Dashboard_V2
-# Project Goal:
+ETF Dashboard V2 Incorporated for Machine Learning
+- Team 7: Ken, Albert, William and Rabia
+- Readme author - Rabia and Ken Lee 2022-01-16
 
-# Project Requirements: 
-1) Two Techniques we will focus:
-- Google Colab (Cloud)
-- Scikit-learn (ML) or TensorFlow/Keras
-2) Projects:
-- Compare two or more machine-learning models for solving a predictive task.
-- Use machine learning to build a sophisticated algorithmic trading bot.
+I. Project overview
+- Enhance stock screening process by adding both Technical (Performance) and Financial (Fundamental) Analysis by using both Using Alpaca and Yahoo Finance Data 
+- Leverage two machine Learning models and Colab cloud for stock price prediction (LSTM Regression Analysis) and Algorithmic trading (Deep Convolutional Neural Networks with execution signal (buy/hold/sell)
+- Add Portfolio and Performance management to create and revamp up our new Portfolio [WKRA] ($ 1,000,000 USD) 
 
-# Presentation
-This is what you need for your presentation:
-- An executive summary of the project and project goals. (5 points)
-Explain how this project relates to fintech and machine learning.
-The selected model. (5 points)
+Complete Detail: Presentation: https://docs.google.com/presentation/d/1h6kvGb_6y4TC3zCaCfaiNC9UBA9HESKRjNTkuy4BBRU/edit#slide=id.gc6f9e470d_0_0
 
-Rebalancing the portfolio (short/long) with Machine learning
-# V2 Enhancement:
-+ ML1. Time Series - Linear Regression Study (supervised)
-+ ML2. Cherry Picking new names to short/loang
-+ ML3. Periodic Rebalancing (execution)
+II. Dashboard Functinaly Domains:
+1. Technical Stock Screener analyzes individual historical performance such as moving averages with volume and Relative Strength(RS) Rating to selects allocation asset candidates based on our screening criteria
+2. Financial Analyzer reviews financial statement data of selected allocation candidates and compare with sector average 
+to determines allocation strategy and weight
+3. AlgoTrader proactively manages our position in volatile market and executing trades our investment model and strategy 
+to maximize the profit and reduce the risk
+4. Performance Surveillance captures risk exposure in advance by proactive market forecast and monitoring and 
+ML Model breakage thru back testing and also helps rebalancing/revamping assets every 6 month 
 
-- Describe the machine learning model that your group selected and why.
-The data preparation and model training process. (3 points)
-1. Scikit-learn (ML) --- linear Regression for price movement
-2. TensorFlow/Keras  --- ? 
+III. Detailed usage and Jupyter notebooks: 
+1) ETF_v2_1_StockScreener.ipynb 
+- screen the best performers by using criteria based on SMA 50/150/200/200_20/HIGH_52WK/LOW_52WK, RelativeStrength RS Rating w/ Multiple and SP 500 
+- Inspired from Mark Minervini's Trend Template
+- http://www.minervini.com/blog/index.php/blog/first_things_first_how_to_chart_stocks_correctly_and_increase_your_chances.
 
-- Describe the source of your data and why you chose it for your project.
+2) ETF_v2_2_FinancialAnalyzer.ipynb
+Analyze Financial Profitability and Stability by using Piotroski F-score and Altman Z Scoring metrices 
+Simplified F-Score and Z-Score due to data limitation (only latest quarterly reporting available from Yahoo Finance)
+
+3-1) ETF_v2_3a_AlgoDataGenerator.ipynb
+Calculate Relatvie Strength Index(RSI), Money Flow Index(MFI), Return on capital(ROC), 
+CMO, SMA, EMA, WMA, HWA< IRIX, CCI, DPO KST to generate Fresh Rolling Train Data per stock name
+
+3-2) ETF_v2_3b_AlgoTrader.ipynb
+Algorithmic Financial Trading with Deep Convolutional Neural Networks
+*inspired by paper "Algorithmic Financial Trading with Deep Convolutional Neural Networks: Time Series to Image Conversion Approach:
+implemenetation reference for neural network prediction model: https://towardsdatascience.com/stock-market-action-prediction-with-convnet-8689238feae3
+ML Training Process:
+a. Normalization: used MinMaxScaler from Sklearn to normalize the dat
+b. Group indicators in the image based on types such as mementum and oscillator and train many CNN architectures
+c. Reshape tabular data with 225 features as image
+![Image Reshape](./Resources/image1.png)
+d. Calculate Sample weight and pass it to Keras fit to deal with class imbalance
+e. Neural Network Training model: InputLayer --> Conv2D --> Dropout --> Conv2D --> MaxPooling2D --> Dropout --> Flatten --> Dense --> Dropout --> Dense
+f. BackTesting and Validating thru F1 Score and kappa
+![Model Loss](./Resources/image2.png)
+
+4-1) ETF_V2_4a PortfolioPricePrediction.ipynb
+Stock Price Prediction and Forecasting using Stacked LSTM
+- Colab integration version also available at https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
+- Supervised Regression
+ML Training Process:
+a. Used min-max scalar to transform the values from 0 to 1
+b. Split Train and Test by 60%
+c. Used Sequential Model aand added LSTM Layers to train the model
+d. fit X_train and y_train 
+e. back testing -Predicted Open vs. Actual open
+![Back Test](./Resources/image3.png)
+- Discuss any unanticipated insights or problems that arose and how you resolved them.
+   Hard to improve accuracy and data loss - more research required to train better
+
+4-2) ETF_v2_4b PortfolioPositionMgmt.ipynb
+- Cumulative Return, Performance Comparison to SP500 and other benchmarks, Monte Carlo simulation  
+- Position Management POC (Proof of Concept -- need to integrated with AlgoTrading)
+
+IV. Installation instructions
+installation instructions
+!pip install dateutils
+!pip install sqlalchemy
+!pip install hvplot
+!pip install --upgrade tensorflow
+!pip install -U scikit-learn
+!pip install matplotlib
+
+growth and dividend methods. Linear regression model was used to be able to better forecast futures of our portfolio. Maximizing profits algorithmic trading was implemented to periodic rebalancing into our portfolio.
+
+V. Data Source:
 -------------------------
 1. Alpaca  API (V1) -- Price History Close, Volume
 2. US News -- ETF Ratings by sector and Underlying stock names 
 3. Yahoo Finance -- Financial Statement, balance Sheet and Ratios
---------------------------
-4. Fidelity - Performance baseline by sector. (download as csv) 
-   Step1: Review the example: Automated-Fundamental-Analysis/stockratings.py at d3a9145c529804e72593f79406b8d28b93da04c1 · faizancodes/Automated-Fundamental-Analysis
-   Step2: Find the good website to provide the performance summary by Sector to make comparison 
-   -- getOverallRating(valuationGrade, profitabilityGrade, growthGrade, perfGrade, volatility)
-   e.g. profitabilityGrade
-        profitabilityStats.append(['Net Margin', profitMargin])
-        profitabilityStats.append(['Operating Margin', operMargin])
-        profitabilityStats.append(['Gross Margin', grossMargin])
-        profitabilityStats.append(['ROE', roe])
-        profitabilityStats.append(['ROA', roa])
-    Sector         PriceChange    Avg ROE, AVG ROA, Net Margin,    
-    Technology:   
-     https://eresearch.fidelity.com/eresearch/markets_sectors/sectors/sectors_in_market.jhtml  
-
-- Describe the collection, cleanup, and preparation process.
-  - Apply Grading on Fundamental Data by 5 segments and covert to numbers so that we can use them for X for training -- William 
-  - Normalize the data as a part of Clean up process -- Ken  
-
-- Describe the training process.
-  - Hisorical Price Movement analysis -- Supervised linear Regression ML
-  - Cherry Picking - Unsupervised ML  with sample X and Y 
-  - Algo training - find Exit and Replacement points for porfolio rebalancing
-
-- The approach that your group took to achieve the project goals. (5 points)
-   1. Build 5 Functions to getOverallRating (see example and rewrite our own codes) -- William w/ Industrial baseline download #4
-   2. Enhance Historical price analysis by leaveraging Supervised ML Linear Regression -- Albert
-   3. Train the Model for Cherry picking of best performers (Unsupervised ML)  -- Ken 
-   4. Build Algo Trading logic to reblance our portfolio periodic basis (Unsupervised ML) -- Albert
-   5. Summerize the ourcome and our model v2 approaches -- Presentation -- Rabia (Convert this Readme to presentation DRAFT)
+4. Fidelity and FinVisualization- Performance baseline by sector. (download as csv) 
+--------------------------   
   
-   
-- Include any relevant code or demonstrations of the machine learning model.
+VI. relevant code or demonstrations of the machine learning model.
    1. https://github.com/klee08/Project_Dashboard_V2
-   2. Google Colab Jupyter lab - URL: ?? (will be added)
+   2. Google Colab Jupyter lab - URL: https://colab.research.google.com/drive/1VgtwjDL0uEKNQYNOMgJmVTk1mo1cTXC8?usp=sharing
 
-- Describe the techniques that you used to evaluate the performance of the model.
-   1. Forecast: MonteCarlo + prediction/surveillance techniques 
-   2. Look Back: and back pricing -- leveraging known history
-   
-- Discuss any unanticipated insights or problems that arose and how you resolved them.
-   -- TO-DO LIST for v3 improvement 
-   
-- The results and conclusions from the machine learning model or application. (5 points)
-   --- WILL BE ADDED
-
-- Include relevant images or examples to support your work.
-   --- WILL BE ADDED
-
-- If the project goal wasn’t achieved, share the issues and what the group tried for resolving them.
-- Next steps. (2 points)
-Take a moment to discuss the potential next steps for the project.
-Discuss any additional questions that you’d explore if you had more time. 
-Specifically, if you had additional weeks to work on your project, what would you research next?
-    --- WILL BE ADDED
-
-Next Step
-
-
-
-# Steps:
-1. Enhanced Cherry picking logic -- Fundamental Analysis and Price Movement Regression 
-2. Historical data analysis with ML supervised time seris
-3. Algoritm Trading execution - rebalancing
-4. Monitoring performance 
-
-testing
+VII. Futher Improvement Points:
+  - Need to improve ML Accuracy and prevent loss further by doing more research
+  - Automatic trade execution and position management 
+  - Leverage Google Colab and AWS Cloud to make application more scalable and add more epoch and GPU for ML
