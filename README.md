@@ -11,6 +11,7 @@ To improve accuracy and performance in volitle market:
 Presentation(Complete Detail): https://docs.google.com/presentation/d/1h6kvGb_6y4TC3zCaCfaiNC9UBA9HESKRjNTkuy4BBRU/edit#slide=id.gc6f9e470d_0_0
 
 II. Dashboard V2 - 4 Functinality Domains:
+![Domain](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image10.PNG)
 1. Technical Stock Screener analyzes individual historical performance such as moving averages with volume and Relative Strength(RS) Rating to selects allocation asset candidates based on our screening criteria
 2. Financial Analyzer reviews financial statement data of selected allocation candidates and compare with sector average 
 to determines allocation strategy and weight
