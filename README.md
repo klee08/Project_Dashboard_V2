@@ -9,7 +9,7 @@ I. Project overview
 
 Presentation(Complete Detail): https://docs.google.com/presentation/d/1h6kvGb_6y4TC3zCaCfaiNC9UBA9HESKRjNTkuy4BBRU/edit#slide=id.gc6f9e470d_0_0
 
-II. Dashboard Functinaly Domains:
+II. Dashboard V2 - 4 Functinality Domains:
 1. Technical Stock Screener analyzes individual historical performance such as moving averages with volume and Relative Strength(RS) Rating to selects allocation asset candidates based on our screening criteria
 2. Financial Analyzer reviews financial statement data of selected allocation candidates and compare with sector average 
 to determines allocation strategy and weight
