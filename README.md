@@ -30,6 +30,7 @@ III. Detailed usage and Jupyter notebooks:
 2) ETF_v2_2_FinancialAnalyzer.ipynb
 
 Analyze Financial Profitability and Stability by using Piotroski F-score and Altman Z Scoring metrices 
+in order to to apply different weigh on Steady Value (buy and hold) vs. Growth focus stocks (long/short)
 Simplified F-Score and Z-Score due to data limitation (only latest quarterly reporting available from Yahoo Finance)
 ![Scoring](https://github.com/klee08/Project_Dashboard_V2/blob/main/Resources/image6.PNG)
 3) AlgoTrader
